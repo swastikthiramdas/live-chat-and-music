@@ -12,3 +12,4 @@ export const fetchImage = async ({ queryKey: [, url] }) => {
   const blob = await response.blob();
   return blob;
 };
+
