@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     supabase.auth.onAuthStateChange((_, session) => {
       if (session) {
-        const { id } = session.user;
+        const { id } = session.user.id;
         dispatch({
           type: "LOG_IN",
           payload: { userId: id },
@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
 
   //ACTIONS
   const logInAnonymous = async () => {
-    setIsLoading("anon");
+    setIsLoading(true);
     await supabase.auth.signInAnonymously();
   };
   const logIn = async () => {
