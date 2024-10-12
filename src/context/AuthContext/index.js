@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
 
   //ACTIONS
   const logInAnonymous = async () => {
-    setIsLoading(true);
+    setIsLoading("anon");
     await supabase.auth.signInAnonymously();
   };
   const logIn = async () => {
